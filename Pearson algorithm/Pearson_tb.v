@@ -1,9 +1,9 @@
-module new_loop_tb1;
+module Pearson_tb1;
 
 wire [7:0] msg,hash;
 
 reg clk,reset;
-new_loop dut(msg,clk,reset,hash);
+pearson dut(msg,clk,reset,hash);
 
 
 
