@@ -12,8 +12,8 @@
 // a Counter design along with XOR gate and Multiplexers.
 //The Schematic diagram attached would give a Good view of the design.
 
-module new_loop1(input [7:0] msg_i,
-                 input clk,reset,
+module pearson(input [7:0] msg_i,
+                 input clk_i,reset_i,
                  output [7:0] hash_o);
 
 wire [7:0] data_temp;
@@ -58,9 +58,9 @@ assign S = state;
  assign h = {test,msg_o[7]};
 
 //Assigning States for  changing the Control_line of the Multiplexers
-always @(posedge clk or posedge reset)
+	always @(posedge clk_i or posedge reset_i)
 	begin
-		if (reset) 
+		if (reset_i) 
 			state <= 3'b000;					
 		else  
 			state <= state + 3'b001;
