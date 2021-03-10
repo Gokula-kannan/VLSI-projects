@@ -1,6 +1,6 @@
-module ram_ph (
-address     , // Address Input
-data        , // Data bi-directional
+module RAM(
+address_i     , // Address Input
+data        , 
 cs          , // Chip Select
 we          , // Write Enable/Read Enable
 oe            // Output Enable
@@ -9,12 +9,11 @@ parameter DATA_WIDTH = 8 ;
 
 
 //--------------Input Ports----------------------- 
-input [7:0] address ;
-input cs;
-input we;
-input oe; 
-
-//--------------Inout Ports----------------------- 
+	input [7:0] address_i ;
+input cs_i;
+input we_i;
+input oe_i; 
+//--------------Output Ports----------------------- 
 output [DATA_WIDTH-1:0] data;
 
 //--------------Internal variables---------------- 
@@ -29,12 +28,12 @@ assign data = (cs && oe && !we) ? data_out : 8'bz;
 
 // Memory Write Block 
 // Write Operation : When we = 1, cs = 1
-/* always @ (address or data or cs or we)
+always @ (address or data or cs or we)
 begin : MEM_WRITE
    if ( cs && we ) begin
        mem[address] = data;
    end
-end */
+end 
   
   integer i;
    initial 
