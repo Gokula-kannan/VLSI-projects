@@ -40,7 +40,7 @@ xor_gate xor_gate1(xor_i1,xor_i2,addr);
  
 //The Asynchronous read RAM is used to get the 'Addr' as input and provide the Data in that address as Output.
 //The Output is feedbacked the input of multiplexers through data_temp; The Data in RAM is initialized.
-ram_ph MEM1(addr,data_temp,1'b1,1'b0,1'b1);
+RAM MEM1(addr,data_temp,1'b1,1'b0,1'b1);
 
  
 assign S = state;
