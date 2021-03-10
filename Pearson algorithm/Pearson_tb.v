@@ -1,4 +1,4 @@
-module Pearson_tb1;
+module Pearson_tb;
 
 wire [7:0] msg,hash;
 
